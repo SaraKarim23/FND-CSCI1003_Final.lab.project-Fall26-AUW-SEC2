@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudySense | Smart Study Planner</title>
+
+    <!-- Connect CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <h2 class="logo">StudySense</h2>
+
+        <p class="menu-heading">MAIN MENU</p>
+
+        <nav class="navigation">
+
+            <a href="#dashboard" class="active">
+                Dashboard
+            </a>
+
+            <a href="#study-planner">
+                Study Planner
+            </a>
+
+            <a href="#exams">
+                Exam Tracker
+            </a>
+
+<a href="#readiness">
+    Exam Readiness
+</a>
+
+<a href="#timer">
+    Focus Timer
+</a>
+
+<a href="#reports">
+    Study Reports
+</a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p>Study smarter every day!</p>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- HEADER -->
+        <header class="header">
+
+            <div>
+                <h1>Dashboard</h1>
+                <p>Welcome back! Let's make today productive.</p>
+            </div>
+
+            <div class="student-profile">
+                <div class="profile-icon"></div>
+
+                <div>
+                    <h3>studySense</h3>
+                    <p>Student</p>
+                </div>
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD CARDS -->
+        <section class="dashboard" id="dashboard">
+
+            <div class="card">
+                <h3>My Subjects</h3>
+                <h2 id="subjectCount">0</h2>
+                <p>Subjects added</p>
+            </div>
+
+            <div class="card">
+                <h3>Study Tasks</h3>
+                <h2 id="taskCount">0</h2>
+                <p>Total study tasks</p>
+            </div>
+
+            <div class="card">
+                <h3>Upcoming Exams</h3>
+                <h2 id="examCount">0</h2>
+                <p>Exams scheduled</p>
+            </div>
+
+            <div class="card">
+                <h3>Study Progress</h3>
+                <h2 id="progress">0%</h2>
+                <p>Overall completion</p>
+            </div>
+
+        </section>
+<!-- TODAY'S STUDY PLAN -->
+<section class="section" id="planner">
+
+    <h2>Today's Study Plan</h2>
+
+    <div id="todayStudyPlan">
+
+        <p class="empty-message">
+            Loading today's study plan...
+        </p>
+
+    </div>
+
+</section>
+<!-- END TODAY'S STUDY PLAN -->
+
+<section class="section" id="study-planner">
+
+    <h2>Study Planner</h2>
+
+    <p class="description">
+        Organize your daily study tasks and manage your time.
+    </p>
+
+    <!-- Add New Task Form -->
+
+    <form id="taskForm" class="task-form">
+
+        <div class="input-group">
+
+            <label for="taskTitle">
+                Task Name
+            </label>
+
+            <input
+                type="text"
+                id="taskTitle"
+                placeholder="Example: Complete Algebra Exercises"
+                required
+            >
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label for="taskSubject">
+                Subject
+            </label>
+
+            <input
+                type="text"
+                id="taskSubject"
+                placeholder="Example: Mathematics"
+                required
+            >
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label for="taskDate">
+                Study Date
+            </label>
+
+            <input
+                type="date"
+                id="taskDate"
+                required
+            >
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label for="taskTime">
+                Study Time
+            </label>
+
+            <input
+                type="time"
+                id="taskTime"
+                required
+            >
+
+        </div>
+
+
+        <button type="submit" class="add-button">
+            + Add Task
+        </button>
+
+    </form>
+
+
+    <!-- Task List -->
+
+    <h3 class="list-heading">
+        My Study Tasks
+    </h3>
+
+    <div id="taskList" class="task-list">
+
+        <p class="empty-message">
+            No study tasks added yet.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+  <!-- MY SUBJECTS SECTION -->
+
+<section class="section" id="subjects">
+
+    <h2>My Subjects</h2>
+
+    <p class="description">
+        Add your subjects and organize your learning.
+    </p>
+
+    <!-- Add Subject Form -->
+
+    <form id="subjectForm" class="subject-form">
+
+        <div class="input-group">
+
+            <label for="subjectName">Subject Name</label>
+
+            <input
+                type="text"
+                id="subjectName"
+                placeholder="Enter subject name"
+                required
+            >
+
+        </div>
+
+        <div class="input-group">
+
+            <label for="topicCount">Number of Topics</label>
+
+            <input
+                type="number"
+                id="topicCount"
+                placeholder="Enter topics"
+                min="1"
+                required
+            >
+
+        </div>
+
+        <button type="submit" class="add-button">
+            + Add Subject
+        </button>
+
+    </form>
+
+
+    <!-- Subject List -->
+
+    <h3 class="list-heading">My Subject List</h3>
+
+    <div id="subjectList" class="subject-list">
+
+        <p class="empty-message">
+            No subjects added yet.
+        </p>
+
+    </div>
+
+</section>
+
+
+        <!-- EXAM TRACKER -->
+<!-- EXAM TRACKER SECTION -->
+
+<section class="section" id="exams">
+
+    <h2>Exam Tracker</h2>
+
+    <p class="description">
+        Keep track of your upcoming examinations.
+    </p>
+
+
+    <!-- Add Exam Form -->
+
+    <form id="examForm" class="exam-form">
+
+        <div class="input-group">
+
+            <label for="examName">
+                Exam Name
+            </label>
+
+            <input
+                type="text"
+                id="examName"
+                placeholder="Example: Midterm Examination"
+                required
+            >
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label for="examSubject">
+                Subject
+            </label>
+
+            <input
+                type="text"
+                id="examSubject"
+                placeholder="Example: Mathematics"
+                required
+            >
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label for="examDate">
+                Exam Date
+            </label>
+
+            <input
+                type="date"
+                id="examDate"
+                required
+            >
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label for="examTime">
+                Exam Time
+            </label>
+
+            <input
+                type="time"
+                id="examTime"
+                required
+            >
+
+        </div>
+
+
+        <button type="submit" class="add-button">
+            + Add Exam
+        </button>
+
+    </form>
+
+
+    <!-- Upcoming Exam List -->
+
+    <h3 class="list-heading">
+        Upcoming Examinations
+    </h3>
+
+    <div id="examList" class="exam-list">
+
+        <p class="empty-message">
+            No exams scheduled yet.
+        </p>
+
+    </div>
+
+</section>
+
+        <!-- READINESS -->
+        <section class="section" id="readiness">
+
+    <h2>Exam Readiness</h2>
+    <p class="section-description">
+        Track how prepared you are for your exams.
+    </p>
+
+    <form id="readinessForm" class="readiness-form">
+
+        <div class="input-group">
+            <label for="readinessExam">Exam Name</label>
+            <input
+                type="text"
+                id="readinessExam"
+                placeholder="Enter exam name"
+                required
+            >
+        </div>
+
+        <div class="input-group">
+            <label for="readinessLevel">Preparation Level</label>
+            <select id="readinessLevel" required>
+                <option value="">Choose your level</option>
+                <option value="25">25% - Just Started</option>
+                <option value="50">50% - Halfway Ready</option>
+                <option value="75">75% - Almost Ready</option>
+                <option value="100">100% - Fully Ready</option>
+            </select>
+        </div>
+
+        <button type="submit" class="add-button">
+            Save Progress
+        </button>
+
+    </form>
+
+    <div id="readinessList" class="readiness-list"></div>
+
+</section>
+
+
+        <!-- FOCUS TIMER -->
+        <section class="section" id="timer">
+
+    <h2>Focus Timer</h2>
+    <p class="section-description">
+        Stay focused and manage your study time.
+    </p>
+
+    <div class="timer-card">
+
+        <h3 id="timerMode">Study Time</h3>
+
+        <div class="timer-display" id="timerDisplay">
+            25:00
+        </div>
+
+        <div class="timer-buttons">
+            <button type="button" id="startTimer" class="add-button">
+                Start
+            </button>
+
+            <button type="button" id="pauseTimer" class="pause-button">
+                Pause
+            </button>
+
+            <button type="button" id="resetTimer" class="reset-button">
+                Reset
+            </button>
+        </div>
+
+        <div class="timer-modes">
+            <button type="button" id="studyMode" class="mode-button active">
+                Study: 25 min
+            </button>
+
+            <button type="button" id="breakMode" class="mode-button">
+                Break: 5 min
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+
+                <!-- STUDY REPORTS -->
+
+<section class="section" id="reports">
+
+    <h2>Study Reports</h2>
+
+    <p class="section-description">
+        Review your study activities and progress.
+    </p>
+
+    <div class="report-grid">
+<div class="weekly-report">
+
+    <h3>Weekly Study Progress</h3>
+
+    <p class="section-description">
+        Your completed study tasks during this week.
+    </p>
+
+    <div id="weeklyChart" class="weekly-chart">
+
+    </div>
+
+</div>
+
+        <div class="report-card">
+            <h3>Total Subjects</h3>
+            <p id="reportSubjects">0</p>
+        </div>
+
+        <div class="report-card">
+            <h3>Total Tasks</h3>
+            <p id="reportTasks">0</p>
+        </div>
+
+        <div class="report-card">
+            <h3>Completed Tasks</h3>
+            <p id="reportCompleted">0</p>
+        </div>
+
+        <div class="report-card">
+            <h3>Total Exams</h3>
+            <p id="reportExams">0</p>
+        </div>
+        <div class="report-card">
+    <h3>Completion Rate</h3>
+
+    <p id="reportCompletionRate">0%</p>
+
+    <div class="report-progress-background">
+        <div id="reportProgressBar"></div>
+    </div>
+</div>
+
+    </div>
+
+</section>
+        <!-- FOOTER -->
+        <footer>
+        <div class="creator-credit">
+    <p>Created with care by</p>
+    <h3>F &amp; L</h3>
+</div>
+        </footer>
+
+
+
+
+    </main>
+
+
+    <!-- Connect JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
